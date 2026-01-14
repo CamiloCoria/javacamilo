@@ -1,34 +1,42 @@
+function bue(){
+    console.log ("Nosotros somos, Banco nullcash")
+}
+bue()
+
 let nombre = prompt("Ingrese su nombre")
 let apellido = prompt("igrese su apellido")
 let dni =parseInt(prompt("ingrese su dni"))
-console.log ("bienvenido. "+ nombre +", "+ apellido +" DNI:"+ dni + ". espero que tenga un buen dia" )
+console.log ("bienvenido. "+ nombre +" "+ apellido +", DNI:"+ dni + ". espero que tenga un buen dia" )
 
 let continuar = true
 let saldo = 50000
-while( continuar){
+while(continuar){
     let menu = parseInt(prompt("ingrese 1- para ver tu cuenta, 2- para extraer dinero, 3- para ingresar dinero"))
 
         switch(menu){
             case 1:
+                console.log ("total de la cuenta $"+ saldo)
                 alert("total de la cuenta $"+ saldo )
                break
             case 2: 
                 console.log("cuanto desea extraer")
                 let resto = parseInt(prompt("ingrese el monto "))
                 if (resto > saldo)
-                    alert("sando insuficinete")
+                    alert("saldo insuficinete")
                 else{
                     saldo = saldo - resto
                     console.log("perfecto, tu saldo actual es de: $"+saldo)
                 }
+                break
             case 3: 
                 console.log("¿cuanto dinero desea ingresar?")
-                let suma =parseInt(prompt("¿cuanto desea ongresar?"))
+                let suma =parseInt(prompt("¿cuanto desea ingresar?"))
                 saldo = saldo + suma
                 console.log ("felictaciones, ingresaste $" + suma)
                 break
             default:
-                console.log("opcion incorrecta")
+                console.log("opcion incorrecta, solo se puede elegir entre 1 - 2 - 3")
+                alert("opcion incorrecta, solo se puede elegir entre 1 - 2 - 3")
                 break
     }
     let confirmacion = prompt("¿desea realizar otra accion? (si/no) ").toLowerCase()
@@ -37,3 +45,7 @@ while( continuar){
         console.log("gracias por su visita "+nombre+", retire la tarjeta. tu saldo actual es de "+ saldo)
     }
 }
+
+const datos = [nombre , apellido , dni, saldo]
+console.log (datos)
+datos.push ("fin de cliente")
